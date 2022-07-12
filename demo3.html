@@ -8,10 +8,27 @@
 </head>
 <body>
     请输入利润:<input type="text" class="profit">
-    <button onclick="bonus">奖金</button>
+    <!-- 注意调用函数:() -->
+    <button onclick="handleBonus()">奖金</button>
     <script>
-        function bonus(){
-
+        function handleBonus(){
+            let bonus = 0;
+            let profit = document.querySelector(".profit").value;
+            // console.log(typeof bonus);
+            if(profit < 100000 || profit === 10000){
+                bonus = profit * 0.1;
+            }else if(profit > 100000 && profit < 200000){
+                bonus = 100000 * 0.1 + (profit - 100000) * 0.075;
+            }else if(profit > 200000 && profit < 400000){
+                bonus = 100000 * 0.1 + 100000 * 0.075 + (profit - 200000) * 0.05;
+            }else if(profit > 400000 && profit < 600000){
+                bonus = 100000 * 0.1 + 100000 * 0.075 + 200000 * 0.05 + (profit - 400000) * 0.03;
+            }else if(profit > 600000 && profit < 1000000){
+                bonus = 100000 * 0.1 + 100000 * 0.075 + 200000 * 0.05 + 200000 * 0.03 + (profit - 600000) * 0.015;
+            }else if(profit > 1000000){
+                bonus = 100000 * 0.1 + 100000 * 0.075 + 200000 * 0.05 + 200000 * 0.03 + 400000 * 0.015 + (profit - 1000000) * 0.01;
+            }
+            alert("奖金为:" + parseInt(bonus));
         }
     </script>
 </body>
