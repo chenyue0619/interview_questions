@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从1到20的阶乘之和</title>
+</head>
+<body>
+    <script>
+        function sum(){
+            // num2表示总和
+            let num2 = 0;
+            // 20+1注意循环次数
+            for(let i = 1;i < 20 + 1;i++){
+                let num1 = 1;
+                for(let j = 1;j < i + 1;j++){
+                    num1 *= j
+                }
+                num2 += num1;
+            }
+            console.log(num2);
+        }
+        sum();
+    </script>
+</body>
+</html>
