@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生js实现大屏滚动效果,时间间隔3s</title>
+    <style>
+        .container{
+            /* 一定要设置overflow属性，不然容器会被里面的盒子撑开，就显示不出来滚动的效果 */
+            overflow:hidden;
+            height: 500px;
+        }
+        .content{
+            width:100%;
+            height: 200px;
+        }
+        .num1{
+            background:red;
+        }
+        .num2{
+            background:green;
+        }
+        .num3{
+            background:yellow;
+        }
+        .num4{
+            background:blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="container">
+            <div class="box">
+                <div class="content num1"></div>
+                <div class="content num2"></div>
+                <div class="content num3"></div>
+                <div class="content num4"></div>
+            </div>
+            <div class="box1"></div>
+        </div>
+    </div>
+    <script>
+        // 获取滚动列表容器
+        let container = document.querySelector('.container');
+        // 获取列表
+        let box = document.querySelector('.box');
+        // 获取空列表
+        let box1 = document.querySelector('.box1');
+        // 设定定时器执行时间间隔
+        let speed = 3;
+ 
+        // 让body回滚到最顶部，设置 document.body.scrollTop = 0;
+        // 设定向上滚动变量
+        // body上面自带属性scrollTop
+        container.scrollTop = 0;
+ 
+        // 复制列表1的内容给列表2
+        box1.innerHTML = box.innerHTML;
+        
+ 
+        // 向上滚动函数
+        function scrollUp() {
+            // console.log(1);
+            // 当滚动列表向滚动的高度大于等于列表自身的高度时
+            if (container.scrollTop >= box.scrollHeight) {
+                // 将列表滚动高度归零，重新开始滚
+                container.scrollTop = 0;
+            } else {
+                // 继续滚动
+                container.scrollTop++;
+            }
+        };
+ 
+        // 存储定时器
+        var myScroll = setInterval("scrollUp()", speed);
+ 
+        // 当鼠标移入的时候，清除定时器
+        container.onmouseover = function () {
+            // console.log(1);
+            clearInterval(myScroll);
+        };
+        // 当鼠标移开的时候，启动定时器
+        container.onmouseout = function () {
+            // console.log(1);
+            myScroll = setInterval("scrollUp()", speed);
+        };
+    </script>
+</body>
+</html>
