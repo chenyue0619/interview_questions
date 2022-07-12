@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给定日期判断第几天</title>
+    <!-- <script src="./vue.js"></script> -->
+</head>
+<body>
+    <div class="time">
+        请输入年份:<input type="text" id="year" />
+        请输入月份:<input type="text" id="month" />
+        请输入日:<input type="text" id="day" />
+        <button onclick="counter()">counter</button>
+    </div>
+    <script>
+        // 闰年天数
+        let arr1 = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        // 平年天数
+        let arr2 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        // 总数
+        let sum = 0;
+        function counter(){
+            let year = document.querySelector("#year").value;
+            let month = document.querySelector("#month").value;
+            let day = document.querySelector("#day").value;
+            // console.log('year type ' + typeof year)
+            // console.log('month type ' + typeof month)
+            // console.log('day type ' + typeof day)
+            // alert("234");
+            if(year % 4 == 0 && year % 400 == 0 ){
+                for(let i = 0;i < (month-1);i++){
+                    sum += arr1[i]
+                }
+                // 注意参数类型:整型、字符串
+                // Number(num)/parseInt(num1,num2) -> 可以转换不同的进制
+                sum += Number(day);  
+                // return sum;
+            }else{
+                for(let j = 0;j < (month-1);j++){
+                    sum += arr1[j]
+                }
+                sum += Number(day);
+                // return sum;
+            }
+            // return sum;
+            alert("第" + sum + "天");
+        }
+    </script>
+</body>
+</html>
