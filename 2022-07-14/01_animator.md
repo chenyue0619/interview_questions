@@ -4,6 +4,6 @@
 
 2、animator属性
 
-* controller:动画状态机
+* controller: 动画状态机
 * avatar:人形动画
 * apply root motion:位移
