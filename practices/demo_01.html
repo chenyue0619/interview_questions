@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重</title>
+</head>
+<body>
+    <script>
+        function removel(){
+            let arr1 = [1,2,3,4,4,4,3,2,3,3,4,5]
+            // set()方法创建一个无序不重复的集合
+            // Array.from()转换数组的:类数组
+            let arr2 = Array.from(new Set(arr1));
+            console.log(arr2);
+        }
+        removel();
+
+        // 闭包
+        function fn_a(){
+            let a = 1;
+            // 返回一个函数
+            return function (){
+                console.log(a);
+            }
+        };
+        // 用一个变量接收return的函数
+        let result = fn_a();
+        // 调用函数
+        result();
+
+        // 递归
+        function multiplication(num){
+            if(typeof num !== "number"){
+                return "请输入一个数字"
+            }else if(num <= 1){
+                return 1;
+            }else{
+                return num * multiplication(num - 1);
+            }
+        }
+        console.log(multiplication(5));
+    </script>
+</body>
+</html>
