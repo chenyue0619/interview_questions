@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入系数求二元一次方程的解</title>
+</head>
+<body>
+    <script>
+        function equation(){
+            // prompt()方法:可以传两个参数
+                // 第一个参数是给需要输入的值做一个说明
+                // 第二个值是输入框中的默认值
+                // 定义一个变量可以接收框框内输入的参数
+                // let a = Number(prompt(1,1));
+            let a = Number(prompt("请输入二元一次方程的二次项的系数:"));
+            let b = Number(prompt("请输入二元一次方程的一次项的系数:"));
+            let c = Number(prompt("请输入二元一次方程的常数项的系数:"));
+            // 保证二次项存在
+            if(a === 0){
+                alert("请输入一个大于0的二次项系数!")
+            }else if(b*b -4*a*c >= 0){
+                // Math.sqrt()求开二次方根的方法
+                // Math.pow(x,1/y),求x的开y次方根
+                // Math.pow(x,y),求x的y次方
+                // 在js中平方不能写成x^2,要写成x*x
+                let x1 = (-b + Math.sqrt((b*b - 4*a*c)))/(2*a);
+                let x2 = (-b - Math.sqrt((b*b - 4*a*c)))/(2*a);
+                alert("方程的实根分别是:" + "x1=" + x1 + ";x2=" + x2);
+            }else{
+                let x1 = - b/(2*a) + "+" + Math.sqrt((4*a*c - b*b))/(2*a) + "i";
+                let x2 = - b/(2*a) + "-" + Math.sqrt((4*a*c - b*b))/(2*a) + "i";
+                alert("方程的虚根分别是:" + "x1=" + x1 + ";x2=" + x2);
+            }  
+        }
+        equation();
+    </script>
+</body>
+</html>
