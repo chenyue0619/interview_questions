@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归:爬楼梯算法(1/2/3阶)</title>
+</head>
+<body>
+    <script>
+        let first = 1;
+        let second = 2;
+        let third = 3;
+        // let types = 0;
+        function stairs(n){
+            if(n === 1){
+                return 1;
+            }else if(n === 2){
+                return 2;
+            }else if(n === 3){
+                return 4;
+            }else{
+                // 递归
+                return stairs(n-1) + stairs(n-2) + (n-3);
+            }
+        };
+        console.log(stairs(5));
+    </script>
+</body>
+</html>
