@@ -21,7 +21,7 @@
                 return 4;
             }else{
                 // 递归
-                return stairs(n-1) + stairs(n-2) + (n-3);
+                return stairs(n-1) + stairs(n-2) + stairs(n-3);
             }
         };
         console.log(stairs(5));
