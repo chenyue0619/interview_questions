@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算数组的中心下标(左侧和等于右侧和) -> reduce()/reduceRight()</title>
+</head>
+<body>
+    <script>
+        // 问题分析：
+        //  两边的和加上中间的和等于数组总和
+        //  中心点左右两边数据的和的两倍加上中间的数据等于数组的和
+        function pivotIndex(nums){
+            for(let i = 0;i < nums.length;i++){
+                // slice(a,b)左闭右开，不会改变原数组
+                let numsLeft = nums.slice(0,i);
+                let numRight = nums - numsLeft - nums[i];
+                let resultLeft = nums.reduce((acc,item) => {
+                    return acc + item,0;
+                });
+                let resultRight = nums.reduce((acc,item) => {
+                    return acc + item,0;
+                });
+                if(resultLeft === resultRight){
+                    console.log(nums[i]);
+                }
+            }
+        };
+        pivotIndex([1, 7, 3, 6, 5, 6])
+    </script>
+</body>
+</html>
