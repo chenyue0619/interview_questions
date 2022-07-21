@@ -43,6 +43,7 @@
                 });
                 // let result = JSON.parse(JSON.stringify(arr));
                 // console.log(typeof result);
+                // new Set()数组去重
                 let arr1Set = Array.from(new Set(arr1));
                 console.log(arr1Set);
 
@@ -79,9 +80,10 @@
                         }
                     })
                 })
+                return false;
             }
         }
-        canConstruct("dabafj","bdjsdabc")
+        canConstruct("aaa","bbbb")
     </script>
 </body>
 </html>

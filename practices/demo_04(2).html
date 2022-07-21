@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赎金信(编码表示charCodeAt())</title>
+</head>
+<body>
+    <script>
+        function canConstruct(ransomNote,magazine){
+            if(ransomNote.length > magazine.length){
+                return false;
+            };
+            // fill(value,start,end)数组里面填充值value,若没有start与end，则默认全部填充value
+            let num = new Array(26).fill(0);
+            // for循环:of规范
+            for(let item of magazine){
+                num[item.charCodeAt() - 'a'.charCodeAt()]++;
+            };
+            for(let item of ransomNote){
+                num[item.charCodeAt() - 'a'.charCodeAt()]--;
+                if(num[item.charCodeAt() - 'a'.charCodeAt()] < 0){
+                    return false;
+                }
+            };
+            return true;
+        }
+        let result = canConstruct('ransomNote','magazine');
+        console.log(result);
+    </script>
+</body>
+</html>
