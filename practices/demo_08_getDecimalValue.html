@@ -8,16 +8,33 @@
 </head>
 <body>
     <script>
+        // 第一种方法：常规操作
+
+        // function getDecimalValue(head){
+        //     let result = 0;
+        //     let length = head.length;
+        //     for(let i = 0;i < length;i++){
+        //         result += head[i] * Math.pow(2,(length - i - 1));
+        //         console.log(result);
+        //     }
+        //     return result;
+        // }
+        // console.log(getDecimalValue([1]));
+
+        // 第二种方法：二进制链表
+
+        
         function getDecimalValue(head){
-            let result = 0;
-            let length = head.length;
-            for(let i = 0;i < length;i++){
-                result += head[i] * Math.pow(2,(length - i - 1));
-                console.log(result);
+            let node = head;
+            let str = '';
+            while(node !== null){
+                str += node.val;
+                node = node.next;
             }
-            return result;
+            return parseInt(str,2);
+
         }
-        console.log(getDecimalValue([1]));
+        console.log(getDecimalValue([1,0,1]));
     </script>
 </body>
 </html>
