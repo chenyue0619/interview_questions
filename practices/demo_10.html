@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>种花问题</title>
+</head>
+<body>
+    <script>
+        var canPlaceFlowers = function(flowerbed, n) {
+            let index = [];
+            // 当数组内全为0的时候
+            if(flowerbed.every(item => item === 0)){
+                let diff4 = parseInt((flowerbed.length + 1) / 2);
+                n -= diff4;
+            }
+            // 把数组内为1的下标推进一个数组，对数组内相邻两项的差值进行判断
+            for(let i = 0;i < flowerbed.length;i++){
+                if(flowerbed[i] === 1){
+                    index.push(i);
+                }
+            };
+            console.log(index);
+            // 对第一个值为1的下标的后面的0的数目进行讨论
+            if(index[0] >= 2){
+                n -= parseInt(index[0] /2);
+            }
+            // 对对后一个值为1的下标的后面的0的数目进行讨论
+            let diff3 = flowerbed.length - index[index.length - 1] - 1;
+            if(diff3 >= 2){
+                n -= parseInt(diff3 /2);
+            }
+            // 遍历所有值为1的下标所组成的数组进行讨论
+            for(let j = 1;j < index.length;j++){
+                let diff = index[j] - index[j - 1];
+                let diff1 = parseInt(diff / 2);
+                let diff2 = diff % 2;
+                n -= (diff1 - 1);
+            }
+            if(n <= 0){
+                return true;
+            }else{
+                return false;
+            }
+        };
+        console.log(canPlaceFlowers([0],1));
+    </script>
+</body>
+</html>
