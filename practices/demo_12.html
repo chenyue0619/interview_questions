@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逐步求和得到正数的最小值</title>
+</head>
+<body>
+    <script>
+        var minStartValue = function(nums) {
+            let n = 1;
+            let result = n;
+            let length = nums.length;
+            for(let i = 0;i < length;i++){
+                result += nums[i];//-2
+                if(result <= 0){
+                    n += (Math.abs(result) + 1);//4 5
+                    result += Math.abs(result) + 1;//1,3,0,1
+                    // console.log(result);
+                };
+            };
+            // console.log(result);
+            return n;
+        };
+        console.log(minStartValue([1,2]));
+    </script>
+</body>
+</html>
