@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组-删除有序数组中的重复项(指针方法)</title>
+</head>
+<body>
+    <script>
+        const removeDuplicate = function(nums){
+            let len = nums.length;
+            // 讨论数组长度为0的情况
+            if(len === 0){
+                return 0;
+            }
+            // 定义两个指针
+            // fast代表遍历数组，
+            // slow代表装载不重复的项
+            let fast = 1;
+            let slow = 1;
+            while(fast < len){
+                if(nums[fast] !== nums[fast - 1]){
+                    nums[slow] = nums[fast];
+                    slow++;
+                }
+                fast++;
+            }
+            return slow;
+        }
+        console.log(removeDuplicate([1,1,2]));
+    </script>
+</body>
+</html>
