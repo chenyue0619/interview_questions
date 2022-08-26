@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>执行操作后的变量值</title>
+</head>
+<body>
+    <script>
+        var finalValueAfterOperations = function(operations) {
+            let x = 0;
+            let len = operations.length;
+            for(let i = 0;i < len;i++){
+                if(operations[i].includes("+")){
+                    x++;
+                }else{
+                    x--;
+                }
+            }
+            return x;
+        };
+        console.log(finalValueAfterOperations(["++X","++X","X++"]))
+    </script>
+</body>
+</html>
