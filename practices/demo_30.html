@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP地址无效化</title>
+</head>
+<body>
+    <script>
+        var defangIPaddr = function(address) {
+            // let reg = new RegExp( "\.","gi");
+            // let result = address.replaceAll('.', "[.]");
+            return address.replaceAll('.', "[.]");
+        };
+        console.log(defangIPaddr("255.100.50.0"));
+    </script>
+</body>
+</html>
