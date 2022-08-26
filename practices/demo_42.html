@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>统计星号</title>
+</head>
+<body>
+    <script>
+        var countAsterisks = function(s) {
+            // 设置一个锁
+            let lock = false;
+            let num = 0;
+            for(let i of s){
+                // 当在"|"之间的时候，将锁打开
+                if(i === "|"){
+                    lock = !lock;
+                // 当在"|"之外的时候，将锁关闭，统计*的数量
+                }else if(i === "*" && !lock){
+                    num++;
+                }
+            }
+            return num;
+
+        
+        };
+        console.log(countAsterisks("yo|uar|e**|b|e***au|tifu|l"))
+    </script>
+</body>
+</html>
