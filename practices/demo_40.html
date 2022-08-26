@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>括号的最大嵌套深度</title>
+</head>
+<body>
+    <script>
+        var maxDepth = function(s) {
+            let sum = 0;
+            let arr = [];
+            if(!s.includes("(")){
+                return 0;
+            }
+            for(let i of s){
+                if(i === "("){
+                    sum++;
+                    arr.push(sum);
+                }else if(i === ")"){
+                    sum--;
+                    arr.push(sum);
+                }
+            }
+            return Math.max(...arr);
+        };
+        console.log(maxDepth( "1"))
+    </script>
+</body>
+</html>
