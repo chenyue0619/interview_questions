@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左旋转字符串</title>
+</head>
+<body>
+    <script>
+        var reverseLeftWords = function(s, n) {
+            let start = s.slice(0,n);
+            let end = s.slice(n);
+            return end.concat(start);
+        };
+        console.log(reverseLeftWords("abcdefg",2));
+    </script>
+</body>
+</html>
