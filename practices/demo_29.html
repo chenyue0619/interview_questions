@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>差的绝对值为K的数对数目</title>
+</head>
+<body>
+    <script>
+        var countKDifference = function(nums, k) {
+            let len = nums.length;
+            let sum = 0;
+            for(let i = 0;i < len;i++){
+                for(let j = i + 1;j < len;j++){
+                    if(Math.abs(nums[i] - nums[j]) === k){
+                        sum++;
+                    }
+                }
+            }
+            return sum;
+        };
+        console.log(countKDifference([1,2,2,1],1));
+    </script>
+</body>
+</html>
