@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二进制求和（未出结果）</title>
+</head>
+<body>
+    <script>
+        var addBinary = function(a, b) {
+            let lenA = a.length;
+            let lenB = b.length;
+            let sumA = 0;
+            let sumB = 0;
+            for(let i = 0 ;i < lenA;i++){
+                sumA += Number(a[i]) * Math.pow(2,lenA - i - 1);
+            }
+            console.log(sumA);
+            for(let i = 0 ;i < lenB;i++){
+                sumB += Number(b[i]) * Math.pow(2,lenB - i - 1);
+            }
+            console.log(sumB);
+            let sumTen = sumA + sumB;
+            console.log(sumTen);
+
+            let sumTwo = [];
+            let sumStr = sumTen.toString();//十进制字符串
+            let len = sumStr.length;//字符串长度
+            let discuss = sumTen / 2;//商
+            // console.log(discuss);
+
+            let remainder = sumTen % 2;//余数
+            // console.log(remainder);
+
+            do{
+                sumTwo.push(remainder);
+                // console.log(remainder);
+                remainder %= 2;
+                discuss /= 2;
+            }while(discuss === 0)
+            // for(let i = 0; ;i++){
+            //     if(discuss === 0){
+            //         break;
+            //     }else{
+            //         sumTwo.push(remainder);
+            //         remainder %= 2;
+            //         discuss /= 2;
+            //     }
+            // }
+            console.log(sumTwo);
+        };
+        console.log(addBinary("11","11"));
+    </script>
+</body>
+</html>
