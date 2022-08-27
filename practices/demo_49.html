@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加一</title>
+</head>
+<body>
+    <script>
+        var plusOne = function(digits) {
+            // console.log(1);
+            let beforeStr = digits.join("").trim();
+            console.log(beforeStr)
+
+            // Number()id超过16位会出现精度丢失的问题，会转换为0
+            // 而BigInt()可以解决此bug
+            let beforeNumber = BigInt(beforeStr);
+            console.log(beforeNumber);
+            let nowNumber = BigInt(beforeNumber) + BigInt(1);
+            let nowStr = (nowNumber.toString().split("n"))[0];
+            console.log(nowStr);
+            let resultArr = [];
+            for(let i of nowStr){
+                resultArr.push(Number(i));
+            }
+            return resultArr;
+        };
+        console.log(plusOne([99]));
+        // console.log(Number(null));
+    </script>
+</body>
+</html>
