@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两数相除</title>
+</head>
+<body>
+    <script>
+        var divide = function(dividend, divisor) {
+            let n = 0;
+            let result = Math.abs(dividend);
+            let divisorClone = divisor;
+            divisor = Math.abs(divisor);
+            // if(divisorClone === 0){
+            //     n = 0;
+            // }
+            while(result > 0){
+                result -= divisor;
+                n++;
+            }
+            if(result < 0){
+                n -= 1;
+            }else if(result === 0){
+                n = n;
+            }
+            if(divisor === -1){
+                n -= 1;
+            }
+            if(dividend < 0 && divisorClone < 0){
+                n = Math.abs(n);
+            }else if(dividend < 0 || divisorClone < 0){
+                n = 0 - n;
+            }
+            
+            return n;
+        };
+        console.log(divide(-2147483648,-1));
+        console.log(-2147483648 / (-1));
+    </script>
+</body>
+</html>
