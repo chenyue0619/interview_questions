@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索插入位置</title>
+</head>
+<body>
+    <script>
+        var searchInsert = function(nums, target) {
+            let result = nums.indexOf(target);
+            if(result !== -1){
+                return result;
+            }else{
+                let len = nums.length;
+                let max = 0;
+                let index = 0;
+                for(let i = len - 1;i > -1;i--){
+                    max = Math.max(target,nums[i]);
+                    // 不可以直接在判断条件里面return，不然会中断循环
+                    if(max === target){
+                        index = i + 1;
+                        // 这里面要中断，不然在i之前的全部小于target，最后就会返回第一个i
+                        break;
+                    }else{
+                        index = 0;
+                    }
+                }
+                return index;
+            }
+        };
+        console.log(searchInsert([1,3,5,6],5))
+    </script>
+</body>
+</html>
