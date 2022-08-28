@@ -15,16 +15,19 @@
                 result += Number(i);
                 // console.log(i)
             }
-            // console.log(result)
-            let len = (result.toString()).length;
-            // console.log(len);
-            if(len === 1){
-                return Number(result);
+            // // console.log(result)
+            // let len = (result.toString()).length;
+            // // console.log(len);
+            // if(len === 1){
+            //     return Number(result);
+            // }
+            if(result < 10){
+                return result;
             }
             // console.log(result);
             // 要return 
             else{
-                return addDigits(Number(result));
+                return addDigits(result);
             }
         };
         console.log(addDigits(0));
