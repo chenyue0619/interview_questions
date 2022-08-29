@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>整数反转</title>
+</head>
+<body>
+    <script>
+        var reverse = function(x) {
+            let y;
+            if(x < 0){
+                y = Math.abs(x) + "" ;
+            } 
+            console.log(y);
+            if(x === 0){
+                return 0;
+            }
+            if(x > 0){
+                y = x.toString();
+            }
+            // 将字符串变成数组
+            
+            let arr = [...y];
+            console.log(arr);
+            // 当数组的最后一位是"0"的时候，删掉
+            let i = arr.length - 1;
+            while(arr[i] === "0"){
+                arr.pop();
+                i -= 1;
+            }
+            // console.log(arr);
+            // 将数组反转 => 字符串 => 数字
+            // console.log(Number(arr.reverse().join("")));
+            y = Number(arr.reverse().join(""));
+            // console.log(y);
+            
+            if(x < 0){
+                if(y > 214748364){
+                    return 0;
+                }else{
+                    return -y;
+                }
+            }else{
+                if(y > 214748364){
+                    return 0;
+                }else{
+                    return y;
+                }
+            }
+        };
+        console.log(reverse(-123));
+        // let a = 123
+        // console.log(-a);
+    </script>
+</body>
+</html>
