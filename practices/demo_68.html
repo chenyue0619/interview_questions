@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串压缩</title>
+</head>
+<body>
+    <script>
+        var compressString = function(S) {
+            let temp = S[0];
+            let count = 0;
+            let str = "";
+            // 因为在遍历到最后一个字符串的时候，后面没有东西，也就不会判断i === temp，不会进行下一步，
+            S = S + ",";
+            for(let i of S){
+                if(i === temp){
+                    count++;
+                }else{
+                    str += temp + count;
+                    temp = i;
+                    console.log(temp);
+                    count = 1;
+                }
+            }
+            // 最后要把多加上的字符串去掉
+            S = S.slice(0,S.length - 1);
+            if(str.length >= S.length){
+                return S;
+            }else{
+                return str;
+            }
+        };
+        console.log(compressString("a"));
+    </script>
+</body>
+</html>
