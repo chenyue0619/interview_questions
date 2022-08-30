@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>去掉最低工资和最高工资后的工资平均值(sort)</title>
+</head>
+<body>
+    <script>
+        var average = function(salary) {
+            salary.sort((a,b) => a - b);
+            salary.pop();
+            salary.shift();
+            let sum = salary.reduce((acc,item) => {
+                return acc + item;
+            });
+            return (sum / salary.length).toFixed(5);
+        };
+        console.log(average([6000,5000,4000,3000,2000,1000]));
+    </script>
+</body>
+</html>
