@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止默认事件</title>
+</head>
+<body>
+    <form>
+        <label>牛客会陪伴大家</label>
+        <input id="checkbox" type="checkbox" checked />
+    </form>
+    <script>
+        let checkbox = document.querySelector("#checkbox");
+        checkbox.addEventListener("click",(e) => {
+            // e = e || window.event;为了兼容浏览器，后者为全局事件
+            // e = e || window.event;
+            e.preventDefault();
+        })
+    </script>
+</body>
+</html>
