@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动和清除浮动</title>
+    <style>
+        /* 
+        使用after伪元素而不是用before的原因：
+        1、在父元素底部（父元素内部的底部）添加一个空的块级元素，
+        2、both样式可使其浮动清除
+         */
+        .wrap::after {
+            /*补全代码*/
+            /*弹性盒*/
+            display:block;
+            content:"";
+            clear:both;
+        }
+            .left {
+            float:left;
+            width: 100px;
+            height: 100px;
+            /*补全代码*/
+            
+        }
+            .right {
+                float:left;
+            width: 100px;
+            height: 100px;
+            /*补全代码*/
+            
+        }
+    </style>
+</head>
+<body>
+    <div class='wrap'>
+        <div class='left'></div>
+        <div class='right'></div>
+    </div>
+</body>
+</html>
