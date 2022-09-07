@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块</title>
+</head>
+<body>
+    <script>
+        function createModule(str1, str2) {
+            // 第一种方法：字面量定义对象
+            // let obj = {
+            //     greeting:str1,
+            //     name:str2,
+            //     sayIt(){
+            //         return this["greeting"] + "," + this["name"];
+            //         // return `this[${str1}]`
+            //     }
+            // }
+            // return obj;
+
+            // 第二种方法：工厂模式
+            class Obj{
+                // constructor这是一个构造函数
+                constructor(){
+                    this.greeting = str1;
+                    this.name = str2;
+                }
+                // 次方法定义在对象原型上面
+                sayIt(){
+                    return this.greeting + ", " + this.name;
+                }
+            }
+            return new Obj;
+        }
+        console.log(createModule(1,2))
+    </script>
+</body>
+</html>
