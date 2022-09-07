@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查找元素位置</title>
+</head>
+<body>
+    <script>
+        function findAllOccurrences(arr, target) {
+            let len = arr.length;
+            let result = [];
+            for(let i = 0;i < len;i++){
+                if(arr[i] === target){
+                    result.push(i);
+                }
+            }
+            return result;
+        }
+        console.log(findAllOccurrences(['a','b','c','d','e','f','a','b','c'],'a'))
+    </script>
+</body>
+</html>
