@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>属性遍历</title>
 </head>
 <body>
     <script>
         function iterate(obj) {
+            let arr = [];
+            let item = "";
+            for(let key in obj){
+                if(obj.hasOwnProperty(key)){
+                    item = key + ": " + obj[key];
+                    console.log(item);
+                    arr.push(item);
+                }
+                // console.log(value);
+            }
+            // console.log(arr);
             // let arr = [];
-            // 这样遍历的是所有的属性
-            // for(let key in obj){
-            //     arr.push(key);
+            // let objNew = Object.entries(obj);
+            // return new Map(Object.entries(obj));
+            // console.log(objNew);
+            // for(let value in objNew){
+            //     // console.log(value);
+            //     // arr.push(item.toString());
             // }
+            console.log(arr);
             return arr;
+            // console.log(Object.entries(obj));
         }
         
         var C = function() {
-            this.foo = 'bar'; 
+            // 定义在对象本身的属性
+            this.foo = 'bar';
             this.baz = 'bim';
         }; 
+        // 定义在原型上面的属性
         C.prototype.bop = 'bip'; 
-        console.log(iterate(new C()));
+        iterate(new C());
     </script>
 </body>
 </html>
