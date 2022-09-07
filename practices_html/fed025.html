@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击按钮隐藏元素</title>
+    <style>
+        .box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: solid 1px black;
+            /*补全代码*/
+            
+        }
+        /* .box#hidden{
+            position: absolute;
+            left: 100000px;
+        } */
+        .btn{
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            /*补全代码*/ 
+            line-height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>
+        <div class='btn'>X</div>
+    </div>
+
+    <script type="text/javascript">
+        var btn = document.querySelector('.btn');
+        var box = document.querySelector('.box');
+        btn.onclick = function(e){
+            // 补全代码
+            // this.style.display = "flex";
+            box.style.display = "none";
+            // e.stopPropagation();
+
+
+            // 父级元素隐藏但子级元素不受影响
+            // box.style.visibility = "hidden";
+            // this.style.visibility = "visible";
+        }
+    </script>
+</body>
+</html>
