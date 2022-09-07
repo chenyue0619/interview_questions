@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS动态创建节点</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+        function createLi(array){
+            // 补全代码
+            let len = array.length;
+            let fragment = document.createDocumentFragment();
+            for(let i = 0;i < len;i++){
+                let li = document.createElement("li");
+                li.innerText = array[i];
+                fragment.appendChild(li)
+            }
+            let ul = document.querySelector("ul");
+            ul.appendChild(fragment);
+        }
+        createLi([1,2,3,4,5]);
+    </script>
+</body>
+</html>
