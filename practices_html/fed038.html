@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匹配重复字符</title>
+</head>
+<body>
+    <script>
+        function containsRepeatingLetter(str) {
+            let len = str.length;
+            let left = Math.abs(str[0]);
+            for(let i = 1;i < len + 1;i++){
+                let s = Math.abs(str[i]);
+                if(left === s){
+                    return true;
+                }else{
+                    left = s;
+                }
+                console.log(left);
+            }
+            // if(left === Math.abs(str[len - 1])){
+            //     return false;
+            // }
+        }
+        console.log(containsRepeatingLetter("fddjk"));
+    </script>
+</body>
+</html>
