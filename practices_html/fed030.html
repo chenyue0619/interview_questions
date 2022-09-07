@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正确的使用 parseInt</title>
+</head>
+<body>
+    <script>
+        function parse2Int(num) {
+            function parseInt(num){
+                return parseFloat(num);
+            }
+            return parseInt(num);
+        }
+        console.log(parse2Int('0x12'));
+    </script>
+</body>
+</html>
