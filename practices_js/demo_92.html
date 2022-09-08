@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成页码</title>
+</head>
+<body>
+    <ul id="ul">
+            
+    </ul>
+    <script type="text/javascript">
+        const _createPage = (allItem, pageItem) => {
+            // 补全代码
+            let ul = document.querySelector("#ul");
+            let discuss = allItem / pageItem ;
+            let len = allItem % pageItem === 0 ? discuss : discuss + 1;
+            // console.log(len);
+            let fragment = document.createDocumentFragment();
+            for(let i = 1;i <= len;i++){
+                let li = document.createElement("li");
+                li.innerText = i;
+                fragment.append(li);
+            }
+            ul.append(fragment);
+        }
+        console.log(_createPage(13,2));
+    </script>
+</body>
+</html>
