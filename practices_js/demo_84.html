@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断版本</title>
+</head>
+<body>
+    <script>
+        const _shouldUpdate = (oldVersion, newVersion) => {
+            // 补全代码
+            // 将版本号去符号变数字比较大小
+            let oldNum = Number(oldVersion.split(".").join(""));
+            let newNum = Number(newVersion.split(".").join(""));
+            console.log(oldNum,newNum)
+            return oldNum < newNum ? true : false
+        }
+        console.log(_shouldUpdate('0.0.2','0.0.0'))
+    </script>
+</body>
+</html>
