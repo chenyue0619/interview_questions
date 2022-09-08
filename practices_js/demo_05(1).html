@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反转字符串</title>
+</head>
+<body>
+    <script>
+        function reverseStr(s,k){
+            // reverse()是数组的方法，不是字符串的方法
+            // str.reverse();
+            let strArray = s.split('');
+            // console.log(strArray);
+            if(strArray.length < k){
+                strArray.reverse();
+            }else if(strArray.length <= 2*k){
+                arr1 = strArray.slice(0,k);
+                arr2 = strArray.slice(k,strArray.length);
+                arr1.reverse();
+                strArray = arr1.concat(arr2);
+            }else if(strArray.length - 2*k < k){
+                arr1 = strArray.slice(0,k);
+                arr2 = strArray.slice(k,2*k);
+                arr3 = strArray.slice(2*k,strArray.length);
+                arr1.reverse();
+                arr3.reverse();
+                strArray =arr1.concat(arr2,arr3);
+            }else if(strArray.length - 2*k < 2*k && strArray.length - 2*k >= k){
+                arr1 = strArray.slice(0,k);
+                arr2 = strArray.slice(k,2*k);
+                arr3 = strArray.slice(2*k,3*k);
+                arr4 = strArray.slice(3*k,strArray.length);
+                arr1.reverse();
+                arr3.reverse();
+                strArray =arr1.concat(arr2,arr3,arr4);
+            };
+            // strArray.toString();
+            // join()改变数组里面数据项分割方式
+            return String(strArray.join(''));
+        };
+        let result = reverseStr("abcdefghijk",3);
+        console.log(result);
+    </script>
+</body>
+</html>

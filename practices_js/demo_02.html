@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一维数组的动态和(for循环)</title>
+</head>
+<body>
+    <script>
+        // function runningSum(arr1){
+        //     let arr2 = [];
+        //     arr2[0] = arr1[0];
+        //     for(let i = 1;i < arr1.length;i++){
+        //         arr2[i] = arr2[i - 1] + arr1[i];
+        //     };
+        //     console.log(arr2);
+        // }
+        // runningSum([1,2,3,4,5,6,7,7]);
+
+        function runningSum2(nums){
+            for(let i = 1;i < nums.length;i++){
+                // arr2[i] = arr2[i - 1] + arr1[i];
+                nums[i] = nums[i - 1] + nums[i];
+            };
+            // 在leetcode写的时候不要console.log()
+            // 记得函数return
+            console.log(nums);
+        }
+        runningSum2([1,2,3,4,5,6,7,7]);
+    </script>
+</body>
+</html>

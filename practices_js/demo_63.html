@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>存在重复元素II</title>
+</head>
+<body>
+    <script>
+        var containsNearbyDuplicate = function(nums, k) {
+            // 第二种方法
+            let len = nums.length;
+            let s = new Set();
+            for(let i = 0;i < len;i++){
+                if(s.has(nums[i])){
+                    return true;
+                }
+                // 将遍历到的元素推进对象s里面
+                s.add(nums[i]);
+
+                if(s.size > k){
+                    s.delete(nums[i - k]);
+                    
+                }
+            }
+            return false;
+
+
+
+
+
+            // 第一种方法
+
+            // let len = nums.length;
+            // for(let i = 0;i < len;i++){
+            //     for(let j = 0;j < nums.length;j++){
+            //         while(nums[i] === nums[j] && i !== j && Math.abs(i - j) <= k){
+            //             return true;
+            //         }
+            //     }
+            // }
+            // return false;
+
+            // 第二种方法
+
+
+
+
+
+            // let len = nums.length;
+            // let row = [];
+            // for(let i = 0;i < len;i++){
+            //     for(let j = 0;j < nums.length;j++){
+            //         let col = [];
+            //         if(nums[i] === nums[j]){
+            //             col.push(j);
+            //         }
+            //     }
+            //     if(col.length === 1){
+            //         row.push("false");
+            //     }else{
+            //         for(let a = 0;a < col.length - 1;a++){
+            //             while(Math.abs(col[a] - col[a + 1]) <= k){
+            //                 row.push("true");
+            //             }
+            //         }
+            //     }
+            // }
+
+
+
+            // let len = nums.length;
+            // // 克隆数组
+            // let numsClone = JSON.parse(JSON.stringify(nums));
+            // for(let i = 0;i < nums.length;i++){
+                
+            //     // 删除自己，会改变原数组
+            //     nums.splice(i,1);
+            //     // 判断删除后是否还有跟自己一样的项
+            //     while()
+
+
+
+                // for(let j = 0;j < nums.length;j++){
+                //     if(nums[i] === nums[j]){
+                //         if(i === j){
+                //             continue;
+                //         }else{
+                //             return Math.abs(nums[i] - nums[j]) <= k ? true : false;
+                //         }
+                //     }
+                //     if(nums[i] !== nums[len - 1] && j === len){
+                //         return false;
+                //     }
+                // }
+            // }
+        };
+        console.log(containsNearbyDuplicate([1,2,3,1],3))
+    </script>
+</body>
+</html>

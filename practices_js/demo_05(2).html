@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反转字符串</title>
+</head>
+<body>
+    <script>
+        function reverseStr(s,k){
+            // join()改变数组分割方式
+            // Array.from(str)将字符串转化为数组:
+            //      Array.from('hello')
+            //      ['h','e','l','l','o']
+
+            let arr = Array.from(s);
+            let n = arr.length;
+            for(let i = 0;i <= n;i + 2*k){
+                let arr1 = arr.slice(0,i);
+                let arr2 = arr.slice(i,i + k);
+                let arr3 = arr.slice(i + k,n);
+                arr2.reverse();
+                arr = arr1.concat(arr2,arr3);
+                if(n-i < k){
+                    let arr4 = arr.slice(n-i,n);
+                    arr4.reverse();
+                    let arr5 = arr.slice(0,n-i);
+                    arr = arr5.slice(arr4);
+                }else if(n-i < 2*k){
+                    let arr4 = arr.slice(n-i,n-i+k);
+                    arr4.reverse();
+                    let arr5 = arr.slice(0,n-i);
+                    let arr6 = arr.slice(n-i+k,n);
+                    arr = arr5.slice(arr4,arr6);
+                }
+            };
+            return String(arr.join(''));
+        }
+        console.log(reverseStr("jsdgfrgetgetd",4))
+    </script>
+</body>
+</html>

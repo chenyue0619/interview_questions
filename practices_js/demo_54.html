@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合并两个有序数组</title>
+</head>
+<body>
+    <script>
+        var merge = function(nums1, m, nums2, n) {
+            // 自动返回nums1
+            // 非递减数组
+            nums1.slice(0,m);
+            nums2.slice(0,n);
+            let len1 = nums1.length - 1;
+            let len2 = nums2.length - 1;
+            let len = len1 + len2 + 2;
+            for(let i = len1;i < len;i--){
+                for(let j = len2;j <= len2;j--){
+                    if(nums1[i] > nums2[j]){
+                        nums1[i + j + 1] = nums1[i];
+                        break;
+                    }else{
+                        nums1[i + j + 1] = nums2[j];
+                    }
+                }
+            }
+            return nums1;
+            
+
+
+
+
+
+            // let arr1 = nums1.slice(0,m);
+            // nums1.slice(0,m);
+            // nums1.sort((a,b) => a - b);
+            // // let arr2 = nums2.slice(0,n);
+            // nums2.slice(0,n);
+            // nums2.sort((a,b) => a - b);
+
+            // // let arr = arr1.concat(arr2);
+            // // // let arr = nums1.slice(0,m).concat(nums2.slice(0,n)); 
+            // // return arr.sort((a,b) => a - b);
+
+            // let len1 = nums1.length;
+            // let len2 = nums2.length;
+            // for(let i = 0;i < len1 + len2;i++){
+            //     for(let j = 0;j < len2;j++){
+            //         if(nums[i] > nums2[j]){
+            //             nums[i] = nums[j];
+            //         }
+            //     }
+            // }
+        };
+        console.log(merge([1,2,3,0,0,0],3,[2,5,6],3));
+    </script>
+</body>
+</html>

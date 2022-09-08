@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移除数组</title>
+</head>
+<body>
+    <script>
+        var removeElement = function(nums, val) {
+            let len = nums.length;
+            for(let i = 0;i < len;i++){
+                if(nums[i] === val){
+                    // splice会改变数组
+                    nums.splice(i,1);
+                    i--;
+                }
+                // console.log(nums);
+
+            }
+            return nums.length;
+        };
+        console.log(removeElement([0,1,2,2,3,0,4,2],2))
+        // let arr = [1,2,3];
+        // arr.splice(1,1);
+        // console.log(arr);
+    </script>
+</body>
+</html>

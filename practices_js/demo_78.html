@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乘法(注意小数位)</title>
+</head>
+<body>
+    <script>
+        function multiply(a, b) {
+            // 获取第一个数字的小数位数
+            let arrA = a.toString().split(".");
+            let lenA = arrA.length === 1 ? 0 : arrA[1].length
+            console.log(lenA);
+            // 获取第二个数字的小数位数
+            let arrB = b.toString().split(".");
+            let lenB = arrB.length === 1 ? 0 : arrB[1].length
+            // let lenB = b.toString().split(".")[1].length;
+            // 选出最长的小数位
+            let max = Math.max(lenA,lenB);
+            // 给结果指定小数位
+            return (a * b).toFixed(max);
+        }
+        console.log(multiply(3, 0.0001));
+    </script>
+</body>
+</html>

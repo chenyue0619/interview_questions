@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>将二进制数组转换为十进制</title>
+</head>
+<body>
+    <script>
+        // 第一种方法：常规操作
+
+        // function getDecimalValue(head){
+        //     let result = 0;
+        //     let length = head.length;
+        //     for(let i = 0;i < length;i++){
+        //         result += head[i] * Math.pow(2,(length - i - 1));
+        //         console.log(result);
+        //     }
+        //     return result;
+        // }
+        // console.log(getDecimalValue([1]));
+
+        // 第二种方法：二进制链表
+
+        
+        function getDecimalValue(head){
+            let node = head;
+            let str = '';
+            while(node !== null){
+                str += node.val;
+                node = node.next;
+            }
+            return parseInt(str,2);
+
+        }
+        console.log(getDecimalValue([1,0,1]));
+    </script>
+</body>
+</html>

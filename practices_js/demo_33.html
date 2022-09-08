@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>句子中的最多单词数</title>
+</head>
+<body>
+    <script>
+        var mostWordsFound = function(sentences) {
+            let max = 0;
+            for(let i of sentences){
+                let arr = i.split(" ");
+                let len = arr.length;
+                max = Math.max(max,len);
+            }
+            return max;
+        };
+        console.log(mostWordsFound(["please wait", "continue to fight", "continue to win"]));
+    </script>
+</body>
+</html>

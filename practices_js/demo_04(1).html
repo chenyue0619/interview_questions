@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赎金信(判断a里面的字符能不能由b里面的字符组成,且每个字符只能用一次) -> (找一个字符串里面每个26字母都出现几次)</title>
+</head>
+<body>
+    <script>
+        // search()返回下标
+        // b.includes(a)返回true、false，判断字符串b里面是否存在字符串a
+        function canConstruct(ransomNote,magazine){
+            //  if(magazine.includes(ransomNote) === true){
+            //     console.log(true);
+            //  }else{
+            //     console.log(false);
+            //  }
+
+            // 不是判断是否存在字符串a
+            // 是判断字符串a是否可以有字符串b中的内容所组成
+            if(ransomNote.length > magazine.length){
+                return false;
+            }else{
+                let arr1 = [];
+                // split()以“”什么样的形式将字符串分开成数组
+                // forEach()遍历数组的方法
+                
+                // console.log(ransomNote.split(''));
+                let ransomNoteSplit= ransomNote.split('');
+                ransomNoteSplit.forEach(item => {
+                    let num = 0;
+                    for(let i = 0;i < ransomNoteSplit.length;i++){
+                        if(ransomNoteSplit[i] === item){
+                            num++;
+                        }
+                    };
+                    obj = {
+                        name:item,
+                        som:num
+                    };
+                    arr1.push(obj);
+                });
+                // let result = JSON.parse(JSON.stringify(arr));
+                // console.log(typeof result);
+                // new Set()数组去重
+                let arr1Set = Array.from(new Set(arr1));
+                console.log(arr1Set);
+
+
+                let arr2 = [];
+                // split()以“”什么样的形式将字符串分开成数组
+                // forEach()遍历数组的方法
+                
+                // console.log(ransomNote.split(''));
+                let magazineSplit=  magazine.split('');
+                magazineSplit.forEach(item => {
+                    let num = 0;
+                    for(let i = 0;i <  magazineSplit.length;i++){
+                        if( magazineSplit[i] === item){
+                            num++;
+                        }
+                    };
+                    obj = {
+                        name:item,
+                        som:num
+                    };
+                    arr2.push(obj);
+                });
+                // let result = JSON.parse(JSON.stringify(arr));
+                // console.log(typeof result);
+                let arr2Set = Array.from(new Set(arr2));
+                console.log(arr2Set);
+
+                arr1Set.forEach(item1 => {
+                    arr2Set.forEach(item2 => {
+                        if(item2.name == item1.name && item2.som >= item1.som){
+                            console.log(true);
+                            return true;
+                        }
+                    })
+                })
+                return false;
+            }
+        }
+        canConstruct("aaa","bbbb")
+    </script>
+</body>
+</html>

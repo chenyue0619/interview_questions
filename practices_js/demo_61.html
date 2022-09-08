@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨辉三角II</title>
+</head>
+<body>
+    <script>
+        var getRow = function(rowIndex) {
+            let result = [];
+            if(rowIndex === 0){
+                result = [[1]];
+            }
+            if(rowIndex === 1){
+                result = [[1],[1,1]];
+            }else{
+                // 第一层循环是杨辉三角的行，从第三行开始 i=2  ,到最后一行结束
+                result = [[1],[1,1]];
+                // rowIndex代表下标，不是代表长度
+                for(let i = 2;i < rowIndex + 1;i++){
+                    let col = [1];
+                    // 第二层列数，从第二列开始 j=1  到倒数第二个结束
+                    // 每一行有i+1个元素
+                    for(let j = 1;j < i ;j++){
+                        col[j] = result[i - 1][j - 1] + result[i - 1][j];
+                        // col[1] = result[2 - 1][1 - 1] + result[2 - 1][1];
+
+                    }
+                    col[i] = 1;
+                    // push()返回值是数组的长度，会改变原数组
+                    result.push(col);
+                }
+            }
+            return result[rowIndex];
+        };
+        console.log(generate(3));
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反转字符串II</title>
+</head>
+<body>
+    <script>
+        var reverseStr = function(s, k) {
+            let len = s.length;
+            let arr = s.split("");
+            // console.log(arr);
+            let arrNew = [];
+            if(len <= k){
+                arrNew = arr.reverse();
+            }else{
+                // 取商
+                let n = parseInt(len / k);
+                // 取余
+                let discuss = len % k;
+                // console.log(n);
+                let singleArr = [];
+                for(let i = 0;i < n;i++){
+                    for(let j = 0;j < k;j++){
+                        singleArr[j] = arr[i * k + j];
+                    }
+                    if(i % 2 === 0){
+                        singleArr.reverse();
+                    }
+                    arrNew = arrNew.concat(singleArr);
+                };
+                // console.log(arrNew);
+                console.log(discuss);//1
+                let total = n*k;
+                if(discuss !== 0 && n % 2 === 0){
+                    for(let a = 0;a < discuss;a++){
+                        arrNew = arrNew.concat(arr[len - 1 - a]);
+                        // singleArr[a] = arr[total + a];
+                        // singleArr[a] = arr[total + a];  
+                        // console.log(singleArr[a]);
+                    }
+                    // singleArr = singleArr.reverse();
+                    // arrNew = arrNew.concat(singleArr);
+                    
+                    // console.log(arr[arr.length - 1]);
+                    // arrNew = arrNew.concat(singleArr.reverse());
+                    // console.log(singleArr);  
+                }else{
+                    for(let a = 0;a < discuss;a++){
+                        // singleArr[a] = arr[total + a]
+                        arrNew = arrNew.concat(arr[total + a]);
+                        // console.log(singleArr[i]);
+                    }
+                    
+                }
+                // console.log(arrNew);
+            }
+            s = arrNew.join("");
+            return s;
+        };
+        console.log(reverseStr("abcd",2));
+;
+    </script>
+</body>
+</html>

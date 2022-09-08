@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>876_链表的中间关键节点</title>
+</head>
+<body>
+    <script>
+        var middleNode = function(head) {
+            let length = head.length;
+            let result1 = length % 2;
+            let result2 = parseInt((length - 1) / 2);
+            if(result1 === 0){
+                return head[result1];
+            }else if(result1 === 1){
+                return head[result2];
+            }
+        };
+        console.log(middleNode([1,2,3,4,5]));
+    </script>
+</body>
+</html>

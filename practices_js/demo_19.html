@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗马数字转整数</title>
+</head>
+<body>
+    <script>
+        var romanToInt = function(s) {
+            let result = 0;
+            let str = s.replace("IV","a").replace("IX","b").replace("XL","c")
+                        .replace("XC","d").replace("CD","e").replace("CM","f");
+            console.log(str);
+            for(let i = 0;i< str.length;i++){
+                switch(str[i]){
+                    case "I":
+                        result += 1;
+                        break;
+                    case "V":
+                        result += 5;
+                        break;
+                    case "X":
+                        result += 10;
+                        break;
+                    case "L":
+                        result += 50;
+                        break;
+                    case "C":
+                        result += 100;
+                        break;
+                    case "D":
+                        result += 500;
+                        break;
+                    case "M":
+                        result += 1000;
+                        break;
+                    case "a":
+                        result += 4;
+                        break;
+                    case "b":
+                        result += 9;
+                        break;
+                    case "c":
+                        result += 40;
+                        break;
+                    case "d":
+                        result += 90;
+                        break;
+                    case "e":
+                        result += 400;
+                        break;
+                    case "f":
+                        result += 900;
+                        break;
+                }
+            }
+
+            // if(s.includes)
+            return result;
+        };
+        console.log(romanToInt("LVIII"));
+    </script>
+</body>
+</html>

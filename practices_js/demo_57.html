@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>位1的个数</title>
+</head>
+<body>
+    <script>
+        var hammingWeight = function(n) {
+            let nStr = n.toString(2);
+            let nArr = [...nStr];
+            let result = nArr.filter((item) => {
+                return item === "1";
+            })
+            return result.length;
+        };
+        console.log(hammingWeight(00000000000000000000000010000000))
+    </script>
+</body>
+</html>

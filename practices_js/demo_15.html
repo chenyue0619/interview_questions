@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组-删除有序数组中的重复项(set方法)</title>
+</head>
+<body>
+    <script>
+        const removeDuplicate = function(nums){
+            // set()对象
+            // 以{}的形式打印出数组中的数据
+            let s = new Set(nums);
+            let arr = [];
+            // 遍历装进数组里面
+            for(let i of s){
+                // push()会改变原数组，得到一个新的arr数组
+                arr.push(i);
+            };
+            return `${s.size},nums = [${arr}]`;
+
+        }
+        console.log(removeDuplicate([0,0,1,1,1,2,2,3,3,4]))
+        // let s = new Set([1,2,3]);
+        // console.log(s);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最富有客户的资产总量</title>
+</head>
+<body>
+    <script>
+        var maximumWealth = function(accounts) {
+            let max = 0;
+            for(let i of accounts){
+                let sum = i.reduce((acc,item) => {
+                    return acc + item;
+                })
+                if(max < sum){
+                    max = sum;
+                }
+            }
+            return max;
+        };
+        console.log(maximumWealth([[1,5],[7,3],[3,5]]))
+    </script>
+</body>
+</html>

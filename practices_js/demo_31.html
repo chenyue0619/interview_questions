@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一个出现两次的字母</title>
+</head>
+<body>
+    <script>
+        var repeatedCharacter = function(s) {
+            let len = s.length;
+            let min = len - 1;
+            // let diff = 0;
+            let minStr = s[0];
+            for(let i = 0;i < len;i++){
+                for(let j = i + 1;j < len;j++){
+                    if(s[j] === s[i]){
+                        // 谁的最大值靠前，拿最早出现的就是谁
+                        min = Math.min(j,min);
+                        minStr = s[min];
+                    }
+                }
+            }
+            return minStr;
+        };
+        console.log(repeatedCharacter("abccbaacz"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二进制求和(parseInt/toString)</title>
+</head>
+<body>
+    <script>
+        var addBinary = function(a, b) {
+            // 二进制转换为十进制
+
+            // BigInt()考虑到超过16位数的数字
+            // 现将其转换为二进制数字
+            let A = "0b" + a;
+            let B = "0b" + b;
+            // let B = parseInt(BigInt(b),2);
+            let sum = BigInt(A) + BigInt(B);
+            // console.log(A);
+            // 十进制转换为二进制
+
+            return sum.toString(2);
+        };
+        console.log(addBinary("10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101",
+"110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011"))
+    </script>
+</body>
+</html>

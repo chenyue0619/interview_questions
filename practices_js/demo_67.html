@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丑数</title>
+</head>
+<body>
+    <script>
+        var isUgly = function(n) {
+            if(n < 1)return false;
+            let arr = [2,3,5];
+            for(let i of arr){
+                // 当我们要遍历一个数组，需要重复使用某一项是，可以嵌套一个while循环
+                while(n % i === 0){
+                    n /= i;
+                }
+            }
+            console.log(n);
+            if(n === 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        console.log(isUgly(14));
+    </script>
+</body>
+</html>
