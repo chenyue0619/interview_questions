@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分隔符</title>
+</head>
+<body>
+    <script>
+        function _comma(number) {
+            // 补全代码
+            // 返回数组，倒序遍历
+            let arrReverse =  Math.abs(number).toString().split("").reverse();
+            let len = arrReverse.length;
+            let result = [];
+            let count = 0;
+            for(let i = 0;i < len;i++){
+                // 每三个为一个频率
+                count ++;
+                // 一次将三个以内的项推进数组
+                result.push(arrReverse[i]);
+                if(count === 3){
+                    // 当满足推进三个项时在末尾加逗号
+                    result.push(",");
+                    count = 0;
+                }
+            }
+            // 因为每三个都会加一个逗号，所以当长度正好是3的倍数时，应该去掉末尾的逗号
+            if((len) % 3 === 0){
+                result.pop();
+            }
+            
+            // 反转数组
+            return number > 0 ? result.reverse().join("") : "-" + result.reverse().join("");
+
+
+
+
+
+            // let left = 0;
+            // let right = 3;
+            // let str = "";
+            // while(right < len){
+            //     let arrReverseClone = JSON.parse(JSON.stringify(arrReverse));
+            //     // slice()会改变原数组，所以每次循环都要提前克隆
+            //     console.log(arrReverseClone);
+            //     str += arrReverseClone.slice(left,right) + ",";
+            //     console.log(str);
+            //     left = right;
+            //     right += 3;
+            // }
+            // return str.split("").reverse().join("");
+            // // return str.slice(0,len - 3) + ',' + str.slice(len - 3,len);
+            // // return `${str.substring(0,len - 3)}${str.substring(len - 3,len)}`
+
+        }
+        console.log(_comma(-143))
+    </script>
+</body>
+</html>
