@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建数组(new Array)</title>
+</head>
+<body>
+    <script>
+        const _createArray = (number) => {
+            // 补全代码
+            // 当数组构造函数传入一个参数的时候，这个参数代表数组的长度
+            let arr = new Array(number);
+            // fill()第一个值为填充的值，后面的(start,end)左闭右开
+            let result = arr.fill(number,0);
+            return result;
+        }
+        console.log(_createArray(4));
+    </script>
+</body>
+</html>
