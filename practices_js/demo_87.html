@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 新数组</title>
+</head>
+<body>
+    <script>
+        const _delete = (array,index) => {
+            // 补全代码
+            let arrNew = JSON.parse(JSON.stringify(array));
+            // splice()返回值是删除的数组
+            // 会改变原数组
+            arrNew.splice(index,1);
+            return arrNew;
+        }
+        console.log(_delete([1,2,3],2));
+    </script>
+</body>
+</html>
