@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断是否以元音字母结尾</title>
+</head>
+<body>
+    <script>
+        function endsWithVowel(str) {
+            // let lastIndex = str.length - 1;
+            // let lastStr = str[lastIndex];
+            // 三元表达式
+            // return lastStr === "a" || lastStr === "e" || lastStr === "i" || lastStr === "o" || lastStr === "u" || lastStr === "A" || lastStr === "E" || lastStr === "I" || lastStr === "O" || lastStr === "U" ? true : false;
+            
+            // 正则表达式
+            // i表示不区分大小写搜索
+            let reg = /[aeiou]$/i;
+            return reg.test(str);
+        }
+        console.log(endsWithVowel('gorilla'));
+    </script>
+</body>
+</html>
