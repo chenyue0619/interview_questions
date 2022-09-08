@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单向绑定</title>
+</head>
+<body>
+    <input id="input" type="text" />
+    <span id="span"></span>
+
+    <script type="text/javascript">
+        // 补全代码
+        // 命名尽量不要跟元素名字一样
+        let _input = document.querySelector("#input");
+        let _span = document.querySelector("span");
+        _input.onchange = function(){
+            _span.innerText = _input.value;
+        }
+    </script>
+</body>
+</html>
