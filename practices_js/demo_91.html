@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>参数解析器</title>
+</head>
+<body>
+    <script>
+        const _getParams = (url) => {
+            // 补全代码
+            let index = url.indexOf("?");
+            let strNew = url.slice(index + 1);
+            let arr = strNew.split("&");
+            console.log(arr);
+            let obj = {};
+            for(let i of arr){
+                let itemArr = i.split("=");
+                console.log(itemArr);
+                // 对象的属性名是变量时应用中括号[]
+                obj[itemArr[0]] = itemArr[1];
+            }
+            return obj;
+        }
+        console.log(_getParams('https://nowcoder.com/online?id=1&salas=1000'))
+    </script>
+</body>
+</html>
