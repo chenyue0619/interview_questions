@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 乘法</title>
+</head>
+<body>
+    <script>
+        function multiply(a, b) {
+            let aArr = a.toString().split(".");
+            // if(aArr.length > 1){
+            //     let lenA = aArr[1].length;
+            // }
+            let bArr = b.toString().split(".");
+            let lenA = aArr.length;
+            let lenB = bArr.length;
+            let len = Math.max(lenA,lenB);
+            let point = 0;
+            // 取两者小数点最长的项
+            if(len === lenA){
+                point = aArr[1].length;
+            }else{
+                point = bArr[1].length;
+            }
+            // if(bArr.length > 1){
+            //     let lenB = bArr[1].length;
+            // }
+            console.log(aArr,bArr)
+            return (a * b).toFixed(point);
+        }
+        console.log(multiply(3, 0.0001));
+    </script>
+</body>
+</html>
