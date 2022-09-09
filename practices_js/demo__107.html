@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="">
+        <option value="0">请选择销量范围</option>
+        <option value="1">&lt100</option>
+        <option value="2">100~500</option>
+        <option value="3">&gt500</option>
+    </select>
+    <ul>
+        <li>牛客logo马克杯</li>
+        <li>无盖星空杯</li>
+        <li>老式茶杯</li>
+        <li>欧式印花杯</li>
+    </ul>
+
+    <script>
+        var cups = [
+            { type: 1, price: 100, color: 'black', sales: 60, name: '牛客logo马克杯' },
+            { type: 2, price: 40, color: 'blue', sales: 100, name: '无盖星空杯' },
+            { type: 4, price: 60, color: 'green', sales: 200, name: '老式茶杯' },
+            { type: 3, price: 50, color: 'green', sales: 600, name: '欧式印花杯' }
+        ]
+        var select = document.querySelector('select');
+        var ul = document.querySelector('ul');
+        // 补全代码
+        let arrSelect = function(arr){
+            ul.innerHTML = "";
+            let fragment = document.createDocumentFragment();
+            for(let i of arr){
+                let li = document.createElement("li");
+                li.innerText = i.name;
+                fragment.append(li);
+            }
+            ul.append(fragment);
+        }
+        select.onchange = function(){
+            let value = this.value;
+            if(value === "0"){
+                return arrSelect(cups);
+            }
+            if(value === "1"){
+                let arr = cups.filter(item => {
+                    return item.sales < 100;
+                })
+                return arrSelect(arr);
+            }
+            if(value === "2"){
+                let arr = cups.filter(item => {
+                    return item.sales >= 100 && item.sales < 500;
+                })
+                arrSelect(arr);
+            }
+            if(value === "3"){
+                let arr = cups.filter(item => {
+                    return item.sales >= 500;
+                })
+                arrSelect(arr);
+            }
+        }
+        
+    </script>
+</body>
+</html>
