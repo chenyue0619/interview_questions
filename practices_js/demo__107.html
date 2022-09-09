@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>数组过滤</title>
 </head>
 <body>
     <select name="" id="">
@@ -30,11 +30,13 @@
         var select = document.querySelector('select');
         var ul = document.querySelector('ul');
         // 补全代码
+        // 因为操作一样，所以封装成一个函数
         let arrSelect = function(arr){
             ul.innerHTML = "";
             let fragment = document.createDocumentFragment();
             for(let i of arr){
                 let li = document.createElement("li");
+                // 要将每一项的name属性值推进li里面
                 li.innerText = i.name;
                 fragment.append(li);
             }
@@ -42,6 +44,7 @@
         }
         select.onchange = function(){
             let value = this.value;
+            // value的值是字符串形式的
             if(value === "0"){
                 return arrSelect(cups);
             }
