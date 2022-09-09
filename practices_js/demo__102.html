@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>将字符串转换为驼峰格式</title>
+</head>
+<body>
+    <script>
+        function cssStyle2DomStyle(sName) {
+            let arr = sName.split("-");
+            if(arr[0] === ""){
+                arr.shift();
+            }
+            console.log(arr);
+            let result = arr[0];
+            let len = arr.length;
+            for(let i = 1;i < len;i++){
+                // 将字符串转换为驼峰格式
+                let start = arr[i][0].toUpperCase();
+                let end = arr[i].slice(1);
+                result += start + end;
+            }
+            return result;
+        }
+        console.log(cssStyle2DomStyle('webkit-background-composite'));
+    </script>
+</body>
+</html>
