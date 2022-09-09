@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证是否是身份证(1)</title>
+</head>
+<body>
+    <script>
+        const _isCard = number => {
+            // 补全代码
+            console.log(parseInt(number).toString().length)
+            let len = number.length;
+            // console.log(len);
+            if(len !== 18){
+                return false;
+            }
+            if(parseInt(number).toString().length === 18)return true;
+            let start = number.slice(0,17);
+            let end = number.slice(17);
+            console.log(start,end);
+            if(start.length === 17 && end === "X")return true;
+            return false;
+
+        }
+        console.log(_isCard('21062319980907888X'))
+    </script>
+</body>
+</html>
