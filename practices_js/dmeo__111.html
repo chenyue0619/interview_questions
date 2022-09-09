@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相同的Set(1)</title>
+</head>
+<body>
+    <script>
+        const _isSameSet = (s1, s2) => {
+            // 补全代码
+            let str1 = [...s1];
+            let str2 = [...s2];
+            console.log(str1,str2)
+            if(str1.length !== str2.length)return false;
+            // 不考虑顺序
+            let resultArr = str1.map(item => {
+                return str2.includes(item);
+            })
+            console.log(resultArr);
+            let result = resultArr.every(item => {
+                return item === true
+            })
+            return result;
+        }
+        let s1 = new Set(['a', 'd', 'c']);
+        let s2 = new Set(['a', 'c', 'b']);
+        console.log(_isSameSet(s1,s2))
+    </script>
+</body>
+</html>
