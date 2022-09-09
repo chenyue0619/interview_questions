@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const _symbolKey = array => {
+            // 补全代码
+            let obj = {};
+            array.map((value,index) => {
+                // 对象的属性是变量时用中括号[]
+                obj[Symbol(value)] = value;
+            })
+            return obj;
+        }
+        console.log(_symbolKey([1,2,3]))
+    </script>
+</body>
+</html>
