@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证是否是身份证(2)-正则</title>
+</head>
+<body>
+    <script>
+        const _isCard = number => {
+            // 补全代码
+            let reg = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+            return reg.test(number);
+        }
+        console.log(_isCard('21062319980907888X'));
+    </script>
+</body>
+</html>
