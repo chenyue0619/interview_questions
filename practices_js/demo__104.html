@@ -21,7 +21,9 @@
             }
             return true;
         }
+        // 参数应该在new出来实例对象的时候传参，
         let num = new Number(4);
+        // 不应该在函数调用的时候直接传参console.log(num._isPrime(4));
         console.log(num._isPrime());
 
     </script>
