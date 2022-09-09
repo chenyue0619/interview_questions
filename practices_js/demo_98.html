@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用闭包</title>
+</head>
+<body>
+    <script>
+        function makeClosures(arr, fn) {
+            let result = [];
+            let len = arr.length;
+            for(let i = 0;i < len;i++){
+                // let fun = function(){}函数表达式形式
+                // 函数声明形式
+                function fun(){
+                    return fn(arr[i]);
+                }
+                result.push(fun);
+                console.log(result[i]());
+            }
+            return result;
+        }
+        var arr = [1,2,3]; 
+        var fn = function (x) { 
+            return x * x; 
+        }
+        
+        console.log(makeClosures(arr,fn));
+    </script>
+</body>
+</html>
