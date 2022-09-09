@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颜色字符串转换</title>
+</head>
+<body>
+    <script>
+        function rgb2hex(sRGB) {
+            if(sRGB[0] !== "r") return sRGB;
+            let arr = sRGB.split("");
+            arr.pop()
+            arr.shift()
+            arr.shift()
+            arr.shift()
+            arr.shift()
+            let str = arr.join("");
+            let newArr = str.split(",")
+            // let len = newArr.length;
+            console.log(newArr)
+            let result = "#";
+            for(let i of newArr){
+                let item = Number(i).toString(16);
+                console.log(item);
+                if(item.length < 2){
+                    item = "0" + item;
+                }
+                result = result.concat(item);
+                
+            }
+            return result;
+        }
+        console.log(rgb2hex('abcde'));
+    </script>
+</body>
+</html>
