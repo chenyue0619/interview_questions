@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用 apply 调用函数</title>
+</head>
+<body>
+    <script>
+        function callIt() {
+            // 类数组不可以使用数组的API
+            // return Array.from(arguments);//[1, 2, 3, 4]
+            // return Array.prototype.slice.call(arguments);//[2, 2, 3, 4]
+            // return [].slice.call(arguments);//[3, 2, 3, 4]
+            return [...arguments];//[4, 2, 3, 4]
+            
+            let arr = Array.from(arguments);
+            arr.shift();
+            return fn(...arr);
+        }
+        
+        console.log(callIt(4,2,3,4));
+    </script>
+</body>
+</html>
