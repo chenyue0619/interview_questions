@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物面板</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <caption>
+                商品
+            </caption>
+        </thead>
+        <tbody>
+            <tr>
+                <td>炸鸡</td>
+                <td>28元</td>
+                <td><button id="zjtaiduola">-</button></td>
+                <td><span id="zjsl">0</span></td>
+                <td><button id="zjtaishaola">+</button></td>
+            </tr>
+            <tr>
+                <td>可乐</td>
+                <td>5元</td>
+                <td><button id="kltaiduola">-</button></td>
+                <td><span id="klsl">0</span></td>
+                <td><button id="kltaishaola">+</button></td>
+            </tr>
+            <tr>
+                <td>总价：</td>
+                <td><span id="total">0</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script type="text/javascript">
+        // 补全代码
+        let zjReduce = document.querySelector("#zjtaiduola"),
+             zjAdd = document.querySelector("#zjtaishaola"),
+             klReduce = document.querySelector("#kltaiduola"),
+             klAdd = document.querySelector("#kltaishaola"),
+             zjNum = document.querySelector("#zjsl"),
+             klNum = document.querySelector("#klsl"),
+             total = document.querySelector("#total");
+        let reduce = function(el){
+            el.innerText -= 1;
+            if(el.innerText <= 0){
+                el.innerText = 0;
+            }
+        }
+        let add = function(el){
+            el.innerText = el.innerText * 1 + 1;
+            // console.log(num);
+        }
+        let sum = function(){
+            total.innerText = zjNum.innerText * 28 + klNum.innerText * 5;
+        }
+        zjReduce.onclick = function(){
+            reduce(zjNum);
+            sum();
+        }
+        zjAdd.onclick = function(){
+            add(zjNum);
+            sum();
+        }
+        klReduce.onclick = function(){
+            reduce(klNum);
+            sum();
+        }
+        klAdd.onclick = function(){
+            add(klNum);
+            sum();
+        }
+    </script>
+</body>
+</html>
