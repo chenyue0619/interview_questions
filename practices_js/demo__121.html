@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>接口</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let data = [
+            {name: 'nowcoder1'},
+            {name: 'nowcoder2'}
+        ]
+        
+        const _api = string => {
+            // 补全代码
+            let arr1 = string.split("");
+            if(arr1.pop() === "?")return data;
+            let arr2 = string.split("?");
+            arr2.unshift();
+            let arr3 = arr2.join("").split("&");//[name=xxx,to=yyy]
+            let value = "";
+            console.log(arr3);
+            arr3.map(item => {
+                let arr = item.split("=");//[name,xxx]
+                if(arr[0] === "to"){
+                    value = arr[1];
+                }
+            })
+            let result = data.map(item => {
+                for(let i in item){
+                    if(item[i] === "name"){
+                        let key = item[i];
+                        item[key] = value;
+                    }
+                    console.log(i);
+                }
+            })
+            return result;
+            
+        }
+        console.log(_api("update?name=nowcoder2&to=nowcoder999"))
+    </script>
+</body>
+</html>
