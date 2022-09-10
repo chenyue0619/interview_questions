@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>全选<input type='checkbox' id='all'></li>
+        <li>Java<input type='checkbox' class='item'></li>
+        <li>javaScript<input type='checkbox' class='item'></li>
+        <li>C++<input type='checkbox' class='item'></li>
+        <li>python<input type='checkbox' class='item'></li>
+        <li>.net<input type='checkbox' class='item'></li>
+    </ul>
+    <script>
+        let all = document.querySelector("#all");
+        let aItem = document.querySelectorAll(".item");
+        all.onchange = function(){
+            // checked属性是一个布尔属性true || "true"
+            // map有返回值
+            // forEach不需要返回值，所以这里使用forEach
+            aItem.forEach(item => {
+                // 其他复选框全部取消选中效果。
+                // item.checked = true;
+                // 把"全选"框从选中状态勾选成未选中状态
+                // this.checked = true;
+
+                if(all.checked){
+                    // this指向all
+                    item.checked = true;
+                }else{
+                    item.checked = false;
+                }
+            })
+        }
+        
+        aItem.forEach(item => {
+            item.onchange = function(){
+                if(item.checked === false){
+                    all.checked = false;
+                }
+            }
+            
+        })
+
+        let count = 0;
+        aItem.forEach(item => {
+            if(item.checked === true){
+                count++;
+            }
+        })
+        if(count === aItem.length){
+            all.checked = true;
+        }else{
+            all.checked = false;
+        }
+
+        // aItem是一个类数组，不能使用数组API
+        let result = Array.from(aItem).every(item => {
+            return item.checked === true;
+        })
+        if(result === true){
+            all.checked = true;
+        }
+    </script>
+</body>
+</html>
