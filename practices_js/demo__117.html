@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回文字符串</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const _isPalindrome = string => {
+            // 补全代码
+            // 回文字符串：正读反读都一样
+            // 字符串没有reverse接口
+            let arr = string.split("");
+            let arrReverse = arr.reverse();
+            let strReverse = arrReverse.join("");
+            return string === strReverse;
+        }
+        console.log(_isPalindrome("leve"));
+    </script>
+</body>
+</html>
