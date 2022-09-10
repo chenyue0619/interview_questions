@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy计数器</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let count = 0
+        const _proxy = object => {
+            // 补全代码
+            // proxy代理：给某一个对象设置某一种操作，每次在访问这个对象的时候都会经过此操作过滤
+            // 格式let p = new Proxy(target,handler)
+            //  target需要操作的目标对象
+            //  handler是个对象，接受过滤操作函数定义
+            let p = new Proxy(object,{
+                handle(target,key){
+                    if(Reflect.has(target,key)){
+                        count++;
+                    }else{
+                        count--
+                    }
+                    return count;
+                }
+            })
+            return p;
+        }
+        let me = {name:'me'};
+        console.log(_proxy(me));
+    </script>
+</body>
+</html>
