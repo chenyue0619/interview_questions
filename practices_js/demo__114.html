@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制动画</title>
+    <style>
+        #rect {
+            width: 120px;
+            height: 100px;
+            background-color: black;
+            /*补全代码*/
+            /* 
+                第一个时间是动画的时间，
+                第二个时间是延迟动画的时间 
+                infinite动画循环播放
+            */
+            animation: rect 10s linear infinite ;
+            
+        }
+        @keyframes rect {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="rect"></div>
+    <input id="range" type="number" value = "1" min="1" max="10" />
+    <script>
+        range.onchange = function(){
+            let value = this.value;
+            // 记得单位
+            rect.style.animationDuration = 11 - value + "s";
+            console.log(rect.style.animationDuration);
+        }
+    </script>
+</body>
+</html>

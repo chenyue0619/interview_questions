@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter</title>
+</head>
+<body>
+    <!-- 
+        GET：向服务端获取数据，数据会拼接在地址栏URL后面，数据之间&连接安全性较差，数据较小
+        POST：向服务器端传递数据，一般用于更新信息，数据拼接在请求体里面，安全性较好，数据大小一般没有限制
+
+     -->
+     <script type="text/javascript">
+        class Rectangle {
+            // 补全代码
+            constructor(width,height,area){
+                this.width = width;
+                this.height = height;
+            }
+            // return 定义私有属性
+            get area(){
+                return this.width * this.height;   
+            }
+        }
+        let r = new Rectangle(12,12).area;
+        console.log(r);
+    </script>
+</body>
+</html>
